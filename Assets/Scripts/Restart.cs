@@ -16,7 +16,7 @@ public class Restart : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.R) == true)
         {
-            //User has pressed R
+            //User has pressed R, load the current scene again. This works because only one scene?
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Load Scene only works by name
         }

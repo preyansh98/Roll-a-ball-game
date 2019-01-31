@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        count = 0; 
+        count = 0;
+        
     }
     void FixedUpdate()
     {
@@ -34,9 +35,9 @@ public class PlayerController : MonoBehaviour
         countText.text = "Score: " + count;
 
         
-        if(count >= 12) //hardcoded. 
+        if(count >= 12) //hardcoded. would be better if it counts using GameObject.isActive = 0
         {
-            WinText.text = "YOU WIN!";  
+             WinText.text = "YOU WIN!";  
         }
     }
 
@@ -52,10 +53,10 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 collisionpos = other.gameObject.transform.position;
             other.gameObject.SetActive(false); 
-            Vector3 ricochetvec = new Vector3((transform.position.x - collisionpos.x)*8, 0.0f,
-                (transform.position.z - collisionpos.z)*9); //calculates a rebound velocity
+            Vector3 ricochetvec = new Vector3((transform.position.x - collisionpos.x)*12, 0.0f,
+                (transform.position.z - collisionpos.z)*12); //calculates a rebound velocity
 
-            //TODO: better way to calculate force factor. 
+            //TODO: better way to calculate force factor, could be based on velocity you hit capsule with?
 
             
             rb.velocity = ricochetvec; //rigid body velocity is now this velocity

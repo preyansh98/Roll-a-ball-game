@@ -8,15 +8,13 @@ public class Rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO: need to make rotations random. 
+        /*
+         * Since the objects are a prefab and all run the same code, 
+         * we need a way to differentiate specific objects. 
+         * All have different position: i.e. based on position they are different objects. 
+         * */
         
-        /**
-         * Get number of active collectible objects first
-         * assign each one to a different rotationcord
-         **/ 
-
-        
-        Vector3 rotationcords = new Vector3(15,30,45);
+        Vector3 rotationcords = new Vector3(15*transform.position.x,30*transform.position.y,45*transform.position.y);
 
         transform.Rotate(rotationcords * Time.deltaTime);
     }
